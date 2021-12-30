@@ -2,6 +2,8 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
+use Carbon\Carbon;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -13,6 +15,8 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+
+$router->group(['prefix' => '/auth'], function () use ($router) {
+    $router->get("/redir/{provider}", ["uses"=> 'AuthController@redirect']);
+    $router->get("/callback/{provider}", ["uses"=> 'AuthController@callback']);
 });
