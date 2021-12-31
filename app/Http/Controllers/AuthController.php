@@ -7,16 +7,6 @@ use Exception;
 
 class AuthController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
     public function redirect($provider)
     {
         if (in_array($provider, array_keys(config('services')))) {

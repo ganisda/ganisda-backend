@@ -17,6 +17,6 @@ use Carbon\Carbon;
 
 
 $router->group(['prefix' => '/auth'], function () use ($router) {
-    $router->get("/redir/{provider}", ["uses"=> 'AuthController@redirect']);
+    $router->get("/redirect/{provider}", ["uses"=> 'AuthController@redirect']);
     $router->get("/callback/{provider}", ["uses"=> 'AuthController@callback']);
 });
